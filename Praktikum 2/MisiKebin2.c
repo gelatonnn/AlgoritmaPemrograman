@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int prima(int n) { //Fungsi untuk mengecek bilangan itu prima atau bukan
+int prima(int n) { //fungsi untuk mengecek bilangan itu prima atau bukan
     if (n <= 1) return 0;
     if (n == 2 || n == 3) return 1;
     if (n % 2 == 0 || n % 3 == 0) return 0;
@@ -11,7 +11,7 @@ int prima(int n) { //Fungsi untuk mengecek bilangan itu prima atau bukan
     return 1;
 }
 
-int jumlah_digit(int n) { //Fungsi untuk menghitung jumlah semua digit dalam bilangan
+int jumlah_digit(int n) { //fungsi untuk menghitung jumlah semua digit dalam bilangan
     int total = 0;
     while (n > 0) {
         total += n % 10; //menambahkan digit terakhir dari n kedalam total
@@ -20,7 +20,7 @@ int jumlah_digit(int n) { //Fungsi untuk menghitung jumlah semua digit dalam bil
     return total;
 }
 
-int konversi_bingro(int n) { //Fungsi untuk konversi int ke bingro
+int konversi_bingro(int n) { //fungsi untuk konversi int ke bingro
     if (n == 0) return 0;
     
     int hasil = 0;
@@ -37,10 +37,10 @@ int main() {
     
     scanf("%d %d", &A, &B);
     
-    if (1 <= A && A <= B && B <= 10000) { //Memvalidasi batasan
+    if (1 <= A && A <= B && B <= 10000) { //validasi batasan
         int hitung = 0;
         
-        for (int angka = A; angka <= B; angka++) { //Mencari bilangan prima di rentang A hingga B
+        for (int angka = A; angka <= B; angka++) { //cari bilangan prima di rentang A hingga B
             if (prima(angka)) {
                 int digit = jumlah_digit(angka);
                 if (prima(digit)) {
@@ -49,7 +49,7 @@ int main() {
             }
         }
         
-        int hasil_bingro = konversi_bingro(hitung); //Konversi bilangan prima yg memenuhi syarat ke bingro
+        int hasil_bingro = konversi_bingro(hitung); //konversi bilangan prima yg memenuhi syarat ke bingro
         
         printf("%d\n", hasil_bingro);
     } else {
