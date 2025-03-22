@@ -7,9 +7,9 @@ typedef struct {
     int year; //Menyimpan tahun
 } Date;
 
-int isLeapYear(int year) {//Berfungsi untuk memeriksa apakah tahun yang dimasukan kabisat atau bukan
+int isLeapYear(int year) { //Berfungsi untuk memeriksa apakah tahun yang dimasukan kabisat atau bukan
     if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-    //Jika habis dibagi 3, tetapi bukan kelipatan 100 atau habis dibagi 400, maka tahun tersebut adalah kabisat
+    //Jika habis dibagi 4, tetapi bukan kelipatan 100 atau habis dibagi 400, maka tahun tersebut adalah kabisat
         return 1;
     }
     return 0;
@@ -18,9 +18,9 @@ int isLeapYear(int year) {//Berfungsi untuk memeriksa apakah tahun yang dimasuka
 int getDaysInMonth(int month, int year) { //Mendapatkan jumlah hari dalam setiap bulan
     int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};//Array untuk menyimpan jumlah hari dalam setiap bulan
     if (month == 2 && isLeapYear(year)) {
-        return 29;//Jika tahun kabisat, februari memiliki 29 hari
+        return 29; //Jika tahun kabisat, februari memiliki 29 hari
     }
-    return daysInMonth[month - 1];//Jika bukan, maka 28 hari (29-1)
+    return daysInMonth[month - 1]; //Jika bukan, maka 28 hari (29-1)
 }
 
 Date addDays(Date date, int n) {
@@ -28,9 +28,9 @@ Date addDays(Date date, int n) {
         int daysInCurrentMonth = getDaysInMonth(date.month, date.year);
         //date.month untuk mendapatkan jumlah hari di bulan saat ini
         if (date.day + n <= daysInCurrentMonth) {
-            date.day += n;//Jika jumlah hari yg ditambah masih dalam range bulan ini, maka langsung ditambahkan dan keluar dari loop
+            date.day += n; //Jika jumlah hari yg ditambah masih dalam range bulan ini, maka langsung ditambahkan dan keluar dari loop
             break;
-        } else {//Jika melebihi jumlah hari dalam bulan inputan
+        } else { //Jika melebihi jumlah hari dalam bulan inputan
             n -= (daysInCurrentMonth - date.day + 1); //mengurangi n (hari) dengan sisa hari di bulan ini
             date.day = 1; //mereset hari 
             date.month++; //pindah ke bulan berikutnya
