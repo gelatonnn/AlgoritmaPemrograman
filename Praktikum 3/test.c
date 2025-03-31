@@ -1,2 +1,0 @@
-Praktikumnya Coming Soon
-
