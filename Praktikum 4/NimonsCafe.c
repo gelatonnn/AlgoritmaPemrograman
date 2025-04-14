@@ -43,41 +43,65 @@ void setTipeEs(PesananMinuman *p, TipeEs tEs) {
 
 void TulisPesanan(PesananMinuman p) {
     char *gula;
-    if (p.tipeGula == LESS_SUGAR) gula = "less sugar";
-    else if (p.tipeGula == NORMAL_SUGAR) gula = "normal sugar";
-    else gula = "extra sugar";
+    if (p.tipeGula == LESS_SUGAR) {
+        gula = "less sugar";
+    } else if (p.tipeGula == NORMAL_SUGAR) {
+        gula = "normal sugar";
+    } else {
+        gula = "extra sugar";
+    }
 
     char *es;
-    if (p.tipeEs == LESS_ICE) es = "less ice";
-    else if (p.tipeEs == NORMAL_ICE) es = "normal ice";
-    else es = "no ice";
+    if (p.tipeEs == LESS_ICE) {
+        es = "less ice";
+    } else if (p.tipeEs == NORMAL_ICE) {
+        es = "normal ice";
+    } else {
+        es = "no ice";
+    }
 
     printf("%s - %c - %s, %s\n", p.namaMinuman, p.ukuran, gula, es);
 }
 
 int TotalKalori(PesananMinuman p) {
     int kaloriGelas = 0;
-    if (p.ukuran == 'S') kaloriGelas += 100;
-    else if (p.ukuran == 'M') kaloriGelas += 150;
-    else if (p.ukuran == 'L') kaloriGelas += 200;
+    if (p.ukuran == 'S') {
+        kaloriGelas += 100;
+    } else if (p.ukuran == 'M') {
+        kaloriGelas += 150;
+    } else if (p.ukuran == 'L') {
+        kaloriGelas += 200;
+    }
 
-    if (p.tipeGula == LESS_SUGAR) kaloriGelas += 10;
-    else if (p.tipeGula == NORMAL_SUGAR) kaloriGelas += 20;
-    else if (p.tipeGula == EXTRA_SUGAR) kaloriGelas += 40;
+    if (p.tipeGula == LESS_SUGAR) {
+        kaloriGelas += 10;
+    } else if (p.tipeGula == NORMAL_SUGAR) {
+        kaloriGelas += 20;
+    } else if (p.tipeGula == EXTRA_SUGAR) {
+        kaloriGelas += 40;
+    }
 
     return kaloriGelas;
 }
 
 int VolumeBersih(PesananMinuman p) {
     int volumeGelas = 0;
-    if (p.ukuran == 'S') volumeGelas = 240;
-    else if (p.ukuran == 'M') volumeGelas = 360;
-    else if (p.ukuran == 'L') volumeGelas = 480;
+    if (p.ukuran == 'S') {
+        volumeGelas = 240;
+    } else if (p.ukuran == 'M') {
+        volumeGelas = 360;
+    } else if (p.ukuran == 'L') {
+        volumeGelas = 480;
+    }
 
     float persentaseEs = 0.0;
-    if (p.tipeEs == NORMAL_ICE) persentaseEs = 0.25;
-    else if (p.tipeEs == LESS_ICE) persentaseEs = 0.10;
-    else if (p.tipeEs == NO_ICE) persentaseEs = 0.0;
+    if (p.tipeEs == NORMAL_ICE) {
+        persentaseEs = 0.25;
+    } else if (p.tipeEs == LESS_ICE) {
+        persentaseEs = 0.10;
+    } else if (p.tipeEs == NO_ICE) {
+        persentaseEs = 0.0;
+    }
 
     int volumeBersih = volumeGelas - (int)(volumeGelas * persentaseEs);
     return volumeBersih;
