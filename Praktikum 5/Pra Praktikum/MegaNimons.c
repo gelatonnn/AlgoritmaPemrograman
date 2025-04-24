@@ -1,6 +1,7 @@
 // NIM    : 18224072
 // Nama   : Francis Galton
 // Tanggal: 23 April 2025
+//Soal ini udah dibenerin yaa guys, jd udah 100 hehe
 
 #include "MegaNimons.h"
 
