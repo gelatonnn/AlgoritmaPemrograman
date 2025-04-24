@@ -2,6 +2,7 @@
 // Nama   : Francis Galton
 // Tanggal: 23 April 2025
 //Soal ini udah dibenerin yaa guys, jd udah 100 hehe
+//Kalo yg di pdf soal itu kmrn masih salah jd nilainy cuma 20
 
 #include "MegaNimons.h"
 
