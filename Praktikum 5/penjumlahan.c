@@ -1,1 +1,1 @@
-//Bentar gess, ini nilainya masi jelek
+//aing nyerah cukk yg ini
