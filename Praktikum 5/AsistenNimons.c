@@ -1,6 +1,3 @@
-//Kodenya masi 90 ges, lg aing coba benerin biar 100
-//Kalo ada yang udah 100 info" ges hehee, sabi pc gw di line/wa. tengkyuuhhh
-
 #include "AsistenNimons.h"
 
 void MakeEmpty(ListNilaiNimons *L){
@@ -18,6 +15,7 @@ int MaxNbEl(ListNilaiNimons L){
 IdxType GetFirstIdx(ListNilaiNimons L){
     return 0;
 }
+
 
 IdxType GetLastIdx(ListNilaiNimons L){
     return L.Neff-1;
@@ -67,8 +65,9 @@ void PrintIsi(ListNilaiNimons L){
             printf("%s - %d - %d\n", L.daftar[i].nama, L.daftar[i].praktikum, L.daftar[i].nilai);
         }
     }else{
-        printf("List Kosong\n");
+        printf("List kosong\n");
     }
+
 }
 
 ElType MakeNilai(char *nama, int prakke, int nilai){
