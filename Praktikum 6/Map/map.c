@@ -1,3 +1,5 @@
+//jangan dicopy plek ketiplek ya ges
+
 #include "map.h"
 
 Map *create_map(int capacity) {
