@@ -8,19 +8,15 @@
  * Implementasi Hash HashMap dengan Open Addressing
  */
 
-// #define false 0
-// #define true 1
 #define Nil 0
 #define MaxEl 16
 #define Undefined -9999
 
-// typedef int bool;
 typedef int keytype;   // Tipe data untuk key
 typedef int valuetype; // Tipe data untuk value
 typedef int address;   // Tipe data untuk alamat penyimpanan
 
-typedef struct
-{
+typedef struct {
     keytype Key;
     valuetype Value;
 } infotype;
@@ -38,6 +34,9 @@ typedef struct {
 
 /* *** Konstruktor/Kreator *** */
 void CreateEmpty(HashMap *M);
+/* I.S. Sembarang */
+/* F.S. Membuat sebuah HashMap M kosong berkapasitas MaxEl */
+/* Ciri HashMap kosong : count bernilai Nil */
 
 /* *** Index Penyimpanan dengan modulo *** */
 address Hash(keytype K);
@@ -45,10 +44,21 @@ address Hash(keytype K);
 
 /* ********** Operator Dasar HashMap ********* */
 valuetype Value(HashMap M, keytype k);
+/* Mengembalikan nilai value dengan key k dari M */
+/* Jika tidak ada key k pada M, akan mengembalikan Undefined */
 
 void Insert(HashMap *M, keytype k, valuetype v);
+/* Menambahkan Elmt sebagai elemen HashMap M. */
+/* I.S. M mungkin kosong, M tidak penuh
+        M mungkin sudah beranggotakan v dengan key k */
+/* F.S. v menjadi anggota dari M dengan key k. Jika k sudah ada, operasi tidak dilakukan 
+        index yang digunakan untuk menyimpan v adalah hash dari k
+        jika hash dari k penuh, cari index available setelahnya */
 
 void printHashMap(HashMap M);
+/* I.S. M mungkin kosong */
+/* F.S. Menampilkan semua elemen M dengan format: "Key: k, Value: v" 
+   untuk setiap elemen dalam M */
 
 void Delete(HashMap *M, keytype k);
 /* Menghapus elemen dengan key k dari HashMap M */
