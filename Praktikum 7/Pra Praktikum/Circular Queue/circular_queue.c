@@ -1,6 +1,7 @@
 // NIM     : 18224072
 // NAMA    : Francis Galton
 // Tanggal : 7 Mei 2025
+// Diupdate pake cara yg sama kek Kak Jendra jelasin tadi (Gapake modulo di Is Full sm Enqueue Dequeue)
 
 #include <stdio.h>
 #include <string.h>
