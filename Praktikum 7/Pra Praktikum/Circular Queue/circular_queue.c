@@ -1,3 +1,7 @@
+// NIM     : 18224072
+// NAMA    : Francis Galton
+// Tanggal : 7 Mei 2025
+
 #include <stdio.h>
 #include <string.h>
 #include "circular_queue.h"
@@ -12,7 +16,7 @@ boolean IsEmpty(Queue Q) {
 /* yaitu ketika idxHead=0 dan idxTail=IDX_MAX atau idxHead=idxTail+1 ketika idxHead > idxTail */
 boolean IsFull(Queue Q) {
     return ((IDX_HEAD(Q) == 0 && IDX_TAIL(Q) == IDX_MAX) ||
-            (IDX_HEAD(Q) == (IDX_TAIL(Q) + 1) % (IDX_MAX + 1)));
+            (IDX_HEAD(Q) >  (IDX_TAIL(Q))) && (IDX_HEAD(Q) == (IDX_TAIL(Q) + 1)));
 }
 
 /* Mengirimkan banyaknya elemen Q, 0 jika kosong */
@@ -44,11 +48,14 @@ void enqueue(Queue *Q, ElType X) {
     if (IsEmpty(*Q)) {
         IDX_HEAD(*Q) = 0;
         IDX_TAIL(*Q) = 0;
-        (*Q).Tab[0] = X;
     } else {
-        IDX_TAIL(*Q) = (IDX_TAIL(*Q) + 1) % (IDX_MAX + 1);
-        (*Q).Tab[IDX_TAIL(*Q)] = X;
+        if (IDX_TAIL(*Q) == IDX_MAX){
+            IDX_TAIL(*Q) = 0;
+        } else {
+            IDX_TAIL(*Q) ++;
+        }
     }
+    TAIL(*Q) = X;
 }
 
 /* Proses: Menghapus idxHead pada Q dengan aturan FIFO, lalu mengembalikan nilainya */
@@ -57,14 +64,18 @@ void enqueue(Queue *Q, ElType X) {
         Head "maju" dengan mekanisme circular buffer;
         Q mungkin kosong */
 ElType dequeue(Queue *Q) {
-    ElType removed = HEAD(*Q);
+    ElType val = HEAD(*Q);
     if (IDX_HEAD(*Q) == IDX_TAIL(*Q)) {
         IDX_HEAD(*Q) = IDX_UNDEF;
         IDX_TAIL(*Q) = IDX_UNDEF;
     } else {
-        IDX_HEAD(*Q) = (IDX_HEAD(*Q) + 1) % (IDX_MAX + 1);
+        if (IDX_HEAD(*Q) == IDX_MAX) {
+            IDX_HEAD(*Q) = 0;
+        } else {
+            IDX_HEAD(*Q)++;
+        }
     }
-    return removed;
+    return val;
 }
 
 /* Proses : Mengembalikan elemen paling depan dari Queue tanpa menghapusnya */
@@ -85,12 +96,11 @@ void displayQueue(Queue q) {
     printf("[");
     if (!IsEmpty(q)) {
         int i = IDX_HEAD(q);
-        while (1) {
-            printf("%s", q.Tab[i].namaTim);
-            if (i == IDX_TAIL(q)) break;
-            printf(", ");
+        while (i != IDX_TAIL(q)) {
+            printf("%s, ", q.Tab[i].namaTim);
             i = (i + 1) % (IDX_MAX + 1);
         }
+        printf("%s", q.Tab[i].namaTim);
     }
     printf("]\n");
 }
