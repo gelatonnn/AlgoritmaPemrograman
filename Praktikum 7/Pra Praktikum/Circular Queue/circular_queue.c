@@ -99,7 +99,11 @@ void displayQueue(Queue q) {
         int i = IDX_HEAD(q);
         while (i != IDX_TAIL(q)) {
             printf("%s, ", q.Tab[i].namaTim);
-            i = (i + 1) % (IDX_MAX + 1);
+            if (i == IDX_MAX){
+                i = 0;
+            } else {
+                i++;
+            }
         }
         printf("%s", q.Tab[i].namaTim);
     }
