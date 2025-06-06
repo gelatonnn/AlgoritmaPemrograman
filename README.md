@@ -1,2 +1,4 @@
-# AlgoritmaPemrograman
-Praktikum Algoritma Pemrograman 1 STI'24 Semester 2
+# Praktikum Algoritma Pemrograman STI
+This repository serves to document and archive my practical exams during my studies in System and Information Technology at Institut Teknologi Bandung.
+
+# By Francis Galton - STI'24
