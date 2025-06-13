@@ -69,7 +69,11 @@ void removeEdge(Graph *g, int src, int dest, int *weight){
  */
 int isAdjacent(Graph *g, int src, int dest){
     if (IsValidVertex(*g, src) && IsValidVertex(*g, dest)) {
-        return g->adjMatrix[src][dest] != -1;
+        if (g->adjMatrix[src][dest] != -1) {
+            return g->adjMatrix[src][dest];
+        } else {
+            return 0;
+        }
     }
     return 0;
 }
